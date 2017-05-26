@@ -49,7 +49,7 @@ DONE_FILE="$CLUSTER_JOB_DIR/_done"
 ssh hadoop@$CLUSTER_IP rm -f $DONE_FILE
 
 echo "SSH'ing into cluster"
-REMOTE_CMD=". /etc/profile; cd $HOME/analyses/temp-aws-tools/; . e10s.sh > notebookrun.log 2>&1"
+REMOTE_CMD=". /etc/profile; bash $HOME/analyses/temp-aws-tools/e10s.sh > notebookrun.log 2>&1"
 ssh "hadoop@$CLUSTER_IP" "tmux new -d '$REMOTE_CMD'"
 
 ## Periodically check for completion, indicated by the presence of the file '_done'.
